@@ -32,14 +32,14 @@ render(
       <div>
         <ul>
           <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
             <Link to="/Productdetails">Details</Link>
           </li>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
         </ul>
-        <Route exact path="/" component={App} />
         <Route path="/Productdetails" component={Productdetails} />
+        <Route exact path="/" component={App} />
       </div>
     </Router>
   </Provider>,

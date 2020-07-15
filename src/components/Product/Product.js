@@ -7,14 +7,22 @@ import Model from "../UI/Model/Model";
 
 class Product extends Component {
   handleClick = () => {
-    history.push("/Productdetails");
-    const { id, addToCart, removeFromCart, isInCart } = this.props;
+    const {
+      id,
+      addToCart,
+      removeFromCart,
+      selectedProduct,
+      isInCart,
+    } = this.props;
 
-    if (isInCart) {
-      removeFromCart(id);
-    } else {
-      addToCart(id);
-    }
+    // if (isInCart) {
+    //   removeFromCart(id);
+    // } else {
+    //   addToCart(id);
+    // }
+    console.log(id);
+    selectedProduct(id);
+    history.push("/Productdetails", id);
   };
 
   render() {
@@ -24,12 +32,13 @@ class Product extends Component {
       <div>
         <Model show={true} />
 
-        <img src={image} alt="product" />
+        <img src={image} alt="product" onClick={this.handleClick} />
         <div>
           <h3>{name}</h3>
           <div className="product__price">
             {price} {currency}
           </div>
+          {/*
           <div className="product__button-wrap">
             <button
               className={isInCart ? "btn btn-danger" : "btn btn-primary"}
@@ -38,6 +47,7 @@ class Product extends Component {
               {isInCart ? "Remove" : "Add to cart"}
             </button>
           </div>
+          */}
         </div>
       </div>
     );
@@ -52,6 +62,8 @@ Product.propTypes = {
   image: PropTypes.string,
   isInCart: PropTypes.bool.isRequired,
   addToCart: PropTypes.func.isRequired,
+  selectedProduct: PropTypes.func.isRequired,
+
   removeFromCart: PropTypes.func.isRequired,
 };
 
