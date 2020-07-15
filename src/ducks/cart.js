@@ -9,7 +9,7 @@ const Selected_Product = "cart/SELETCT";
 const initialState = {
   items: [], // array of product ids
   currency: "INR",
-  selectedItem: 1,
+  selectedItem: 0,
 };
 
 export default function cart(state = initialState, action = {}) {
@@ -41,12 +41,6 @@ function handleCartRemove(state, payload) {
 }
 
 function handleSelected(state, payload) {
-  console.log("handleselected122", payload.productId);
-  console.log("handlestaetes", state.currency);
-  console.log("handlestaetes777", state.selectedItem);
-
-  console.log("items", state.items);
-
   return {
     ...state,
     selectedItem: payload.productId,
@@ -73,7 +67,6 @@ export function removeFromCart(productId) {
 }
 
 export function selectedProduct(productId) {
-  console.log("selectedProduct", productId);
   return {
     type: Selected_Product,
     payload: {
@@ -92,9 +85,6 @@ export function getItems(state, props) {
 }
 
 export function getSelectedItem(state, props) {
-  console.log("getSelectedItem", state.cart.selectedItem);
-  console.log("getitems", state.cart.items);
-
   return state.cart.selectedItem;
 }
 

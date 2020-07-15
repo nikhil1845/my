@@ -18,10 +18,7 @@ class Productdetails extends Component {
   constructor(props) {
     super(props);
     const items = this.props.items;
-    console.log("all props", items);
-    console.log("selectedite", this.props.selectedItem.id);
-    console.log("selectedItem777", this.props.selectedItem);
-
+    console.log("Receved id=", this.props.selectedItem);
     this.state = {
       isInCart: false,
     };
@@ -46,32 +43,22 @@ class Productdetails extends Component {
   // name: "Onida"
   // price: 99.99
   render() {
-    let {
-      name,
-      price,
-      currency,
-      image,
-      id,
-      isInCart,
-    } = this.props.selectedItem;
+    var i;
+    let selecteditm;
 
-    console.log("details id", this.props.selectedItem.id);
-    const items = this.props.products;
-
-    if (items !== undefined) {
-      const selectedItem = items[this.props.selectedItem];
-      if (selectedItem !== undefined) {
-        name = selectedItem.name;
-        id = selectedItem.id;
-        currency = selectedItem.currency;
-        image = selectedItem.image;
-        price = selectedItem.price;
-
-        console.log("Name", image);
-      }
-    } else {
+    const item = this.props.products.filter(
+      (product) => product.id === this.props.selectedItem
+    );
+    console.log("items==", item);
+    let { name, price, currency, image, id, isInCart } = item;
+    let data = item[0];
+    if (data !== undefined) {
+      console.log("name==", data.name);
+      name = data.name;
+      price = data.price;
+      currency = data.currency;
+      image = data.image;
     }
-
     return (
       <div>
         <h1>Product Details {this.props.id}</h1>

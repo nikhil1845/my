@@ -14,10 +14,9 @@ class Product extends Component {
       selectedProduct,
       isInCart,
     } = this.props;
-
-    console.log(id);
+    console.log("Saved id=", id);
     selectedProduct(id);
-    history.push("/Productdetails", id);
+    history.push("/Productdetails");
   };
 
   render() {
