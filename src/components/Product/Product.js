@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { useHistory } from "react-router-dom";
 import Productdetails from "../Productdetails/Productdetails";
-
+import history from "../../history";
 import Model from "../UI/Model/Model";
 
 class Product extends Component {
   handleClick = () => {
+    history.push("/Productdetails");
     const { id, addToCart, removeFromCart, isInCart } = this.props;
 
     if (isInCart) {
