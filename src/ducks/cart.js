@@ -95,6 +95,9 @@ export function getCurrency(state, props) {
 export function getTotal(state, props) {
   return state.cart.items.reduce((acc, id) => {
     const item = getProduct(state, { id });
+    if (item === undefined) {
+      return acc;
+    }
     return acc + item.price;
   }, 0);
 }

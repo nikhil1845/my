@@ -17,7 +17,7 @@ import { connect } from "react-redux";
 class Productdetails extends Component {
   constructor(props) {
     super(props);
-    const items = this.props.items;
+
     console.log("Receved id=", this.props.selectedItem);
     this.state = {
       isInCart: false,
@@ -25,11 +25,11 @@ class Productdetails extends Component {
   }
 
   handleClick = () => {
-    const id = this.props.selectedItem.id;
+    const id = this.props.selectedItem;
 
     const addToCart = this.props.addToCart;
     const removeFromCart = this.props.removeFromCart;
-    if (isInCart) {
+    if (this.props.isInCart) {
       removeFromCart(id);
     } else {
       addToCart(id);
@@ -110,6 +110,8 @@ const mapStateToProps1 = (state, props) => {
     selectedItem: getSelectedItem(state, props),
     products: getProducts(state, props),
     isInCart: isInCart(state, props),
+    total: getTotal(state, props),
+    currency: getCurrency(state, props),
   };
 };
 
