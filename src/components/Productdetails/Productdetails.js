@@ -26,6 +26,10 @@ class Productdetails extends Component {
 
   handleClick = () => {
     const id = this.props.selectedItem;
+    //let selecteditemid;
+    //if (id === undefined) {
+    //  id = 1;
+    //}
 
     const addToCart = this.props.addToCart;
     const removeFromCart = this.props.removeFromCart;
@@ -44,8 +48,10 @@ class Productdetails extends Component {
   // price: 99.99
   render() {
     var i;
-    let selecteditm;
-
+    let selecteditemid;
+    // if (this.props.selectedItem === undefined) {
+    //   selecteditemid = 1;
+    // }
     const item = this.props.products.filter(
       (product) => product.id === this.props.selectedItem
     );
