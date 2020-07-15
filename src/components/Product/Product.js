@@ -15,11 +15,6 @@ class Product extends Component {
       isInCart,
     } = this.props;
 
-    // if (isInCart) {
-    //   removeFromCart(id);
-    // } else {
-    //   addToCart(id);
-    // }
     console.log(id);
     selectedProduct(id);
     history.push("/Productdetails", id);
@@ -38,16 +33,6 @@ class Product extends Component {
           <div className="product__price">
             {price} {currency}
           </div>
-          {/*
-          <div className="product__button-wrap">
-            <button
-              className={isInCart ? "btn btn-danger" : "btn btn-primary"}
-              onClick={this.handleClick}
-            >
-              {isInCart ? "Remove" : "Add to cart"}
-            </button>
-          </div>
-          */}
         </div>
       </div>
     );
