@@ -19,7 +19,8 @@ class Productdetails extends Component {
     super(props);
     const items = this.props.items;
     console.log("all props", items);
-    console.log("selectedite", this.props.selectedItem);
+    console.log("selectedite", this.props.selectedItem.id);
+    console.log("selectedItem777", this.props.selectedItem);
 
     this.state = {
       isInCart: false,
@@ -27,7 +28,8 @@ class Productdetails extends Component {
   }
 
   handleClick = () => {
-    const { id, isInCart } = this.props.selectedItem;
+    const id = this.props.selectedItem.id;
+
     const addToCart = this.props.addToCart;
     const removeFromCart = this.props.removeFromCart;
     if (isInCart) {
@@ -118,7 +120,7 @@ const mapStateToProps = (state, props) => {
 const mapStateToProps1 = (state, props) => {
   props.id = 1;
   return {
-    selectedItem: getProduct(state, props),
+    selectedItem: getSelectedItem(state, props),
     products: getProducts(state, props),
     isInCart: isInCart(state, props),
   };

@@ -41,9 +41,9 @@ function handleCartRemove(state, payload) {
 }
 
 function handleSelected(state, payload) {
-  console.log("handleselected", payload.productId);
+  console.log("handleselected122", payload.productId);
   console.log("handlestaetes", state.currency);
-  console.log("handlestaetes", state.selectedItem);
+  console.log("handlestaetes777", state.selectedItem);
 
   console.log("items", state.items);
 
@@ -92,10 +92,10 @@ export function getItems(state, props) {
 }
 
 export function getSelectedItem(state, props) {
-  console.log("getSelectedItem", state.selectedItem);
-  console.log("getitems", state.items);
+  console.log("getSelectedItem", state.cart.selectedItem);
+  console.log("getitems", state.cart.items);
 
-  return state.selectedItem;
+  return state.cart.selectedItem;
 }
 
 export function getCurrency(state, props) {
