@@ -9,6 +9,7 @@ import {
   getSelectedItem,
   getCurrency,
   getTotal,
+  isInCart,
   removeFromCart,
 } from "../../ducks/cart";
 import { connect } from "react-redux";
@@ -22,7 +23,9 @@ class Productdetails extends Component {
   }
 
   handleClick = () => {
-    const { id, addToCart, removeFromCart, isInCart } = this.props.selectedItem;
+    const { id, isInCart } = this.props.selectedItem;
+    const addToCart = this.props.addToCart;
+    const removeFromCart = this.props.removeFromCart;
     if (isInCart) {
       removeFromCart(id);
     } else {
@@ -110,6 +113,7 @@ const mapStateToProps1 = (state, props) => {
   return {
     selectedItem: getProduct(state, props),
     products: getProducts(state, props),
+    isInCart: isInCart(state, props),
   };
 };
 
