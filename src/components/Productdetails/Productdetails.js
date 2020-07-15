@@ -20,6 +20,10 @@ class Productdetails extends Component {
     const items = this.props.items;
     console.log("all props", items);
     console.log("selectedite", this.props.selectedItem);
+
+    this.state = {
+      isInCart: false,
+    };
   }
 
   handleClick = () => {
@@ -31,6 +35,7 @@ class Productdetails extends Component {
     } else {
       addToCart(id);
     }
+    this.setState({ isInCart: !this.state.isInCart });
   };
 
   //   currency: "INR"
@@ -88,10 +93,12 @@ class Productdetails extends Component {
           </div>
           <div className="product__button-wrap">
             <button
-              className={isInCart ? "btn btn-danger" : "btn btn-primary"}
+              className={
+                this.state.isInCart ? "btn btn-danger" : "btn btn-primary"
+              }
               onClick={this.handleClick}
             >
-              {isInCart ? "Remove" : "Add to cart"}
+              {this.state.isInCart ? "Remove" : "Add to cart"}
             </button>
           </div>
         </div>
